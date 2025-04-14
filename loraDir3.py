@@ -207,7 +207,7 @@ def run_simulation(nrNodes=10,avgSendTime=1000000,experiment=0,simtime=8640000,f
             # and ensure minimum distance between each pair of nodes
             found = 0
             rounds = 0
-            global nodes
+            nodes
             while (found == 0 and rounds < 100):
                 a = random.random()
                 b = random.random()
@@ -236,9 +236,7 @@ def run_simulation(nrNodes=10,avgSendTime=1000000,experiment=0,simtime=8640000,f
             self.sent = 0
 
             # graphics for node
-            global graphics
             if (graphics == 1):
-                global ax
                 ax.add_artist(plt.Circle((self.x, self.y), 2, fill=True, color='blue'))
 
     #
@@ -247,13 +245,7 @@ def run_simulation(nrNodes=10,avgSendTime=1000000,experiment=0,simtime=8640000,f
     #
     class myPacket():
         def __init__(self, nodeid, plen, distance):
-            global experiment
-            global Ptx
-            global gamma
-            global d0
-            global var
-            global Lpld0
-            global GL
+
 
             self.nodeid = nodeid
             self.txpow = Ptx
@@ -376,16 +368,12 @@ def run_simulation(nrNodes=10,avgSendTime=1000000,experiment=0,simtime=8640000,f
             yield env.timeout(node.packet.rectime)
 
             if node.packet.lost:
-                global nrLost
                 nrLost += 1
             if node.packet.collided == 1:
-                global nrCollisions
                 nrCollisions = nrCollisions +1
             if node.packet.collided == 0 and not node.packet.lost:
-                global nrReceived
                 nrReceived = nrReceived + 1
             if node.packet.processed == 1:
-                global nrProcessed
                 nrProcessed = nrProcessed + 1
 
             # complete packet has been received by base station
