@@ -96,8 +96,7 @@ def run_simulation(nrNodes=10,avgSendTime=1000000,experiment=0,simtime=8640000,f
             for other in packetsAtBS:
                 if other.nodeid != packet.nodeid:
                 # simple collision
-                if frequencyCollision(packet, other.packet) \
-                    and sfCollision(packet, other.packet):
+                if frequencyCollision(packet, other.packet) and sfCollision(packet, other.packet):
                     if full_collision:
                         if timingCollision(packet, other.packet):
                             # check who collides in the power domain
