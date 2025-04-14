@@ -48,7 +48,7 @@
     data file can be easily plotted using e.g. gnuplot.
 """
 
-def run_simulation(nrNodes=10,avgSendTime=1000000,experiment=0,simtime=8640000,full_collision=False)
+def run_simulation(nrNodes=10,avgSendTime=1000000,experiment=0,simtime=8640000,full_collision=False):
 
     import simpy
     import random
